@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>zz</title>
+
+  <link href="/common/ar3.css" rel="stylesheet" type="text/css">
+	<style>
+		#i0 {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			opacity: 1;
+		}
+		#i1 {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			opacity: 0.01;
+		}
+		#i2 {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			opacity: 1;
+		}
+		#i3 {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			opacity: 1;
+		}
+		#i4 {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			opacity: 1;
+		}
+		#i5 {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			opacity: 1;
+		}
+		#i1o {
+			position: absolute;
+			top: 100px;
+			left: 10px;
+		}
+		#i2o {
+			position: absolute;
+			top: 140px;
+			left: 10px;
+		}
+		#i3o {
+			position: absolute;
+			top: 180px;
+			left: 10px;
+		}
+		#i4o {
+			position: absolute;
+			top: 220px;
+			left: 10px;
+		}
+		#i5o {
+			position: absolute;
+			top: 260px;
+			left: 10px;
+		}
+	</style>
+</head>
+<body>
+	<img id="i0" src="g1.png" />
+	<img id="i1" src="g1r.png" />
+	<img id="i2" src="g1g.png" />
+	<img id="i3" src="g1b.png" />
+	<img id="i4" src="g1r.png" />
+	<img id="i5" src="g1g.png" />
+	<input type="text" id="i1o" value="0" /><br />
+	<input type="text" id="i2o" value="0" /><br />
+	<input type="text" id="i3o" value="0" /><br />
+	<input type="text" id="i4o" value="0" /><br />
+	<input type="text" id="i5o" value="0" /><br />
+	<script>
+		function $(z) {
+			return document.getElementById(z);
+		}
+		document.getElementById("i1o").onkeyup = document.getElementById("i2o").onkeyup = document.getElementById("i3o").onkeyup = document.getElementById("i4o").onkeyup = document.getElementById("i5o").onkeyup = function() {
+			document.getElementById("i1").style.opacity = 1/100 * parseInt(document.getElementById("i1o").value);
+			document.getElementById("i2").style.opacity = 1/100 * parseInt(document.getElementById("i2o").value);
+			document.getElementById("i3").style.opacity = 1/100 * parseInt(document.getElementById("i3o").value);
+			document.getElementById("i4").style.opacity = 1/100 * parseInt(document.getElementById("i4o").value);
+			document.getElementById("i5").style.opacity = 1/100 * parseInt(document.getElementById("i5o").value);
+		}
+		function si(n, a) {
+			$("i" + n).src = "g1" + a + ".png";
+		}
+		function so(n, o) {
+			$("i" + n).style.opacity = o/100;
+		}
+		var tv = 0;
+		function gradient() {
+			if(tv > 600) {
+				tv = tv % 600;
+			}
+			if(0 <= tv && tv < 100) {
+				si(1, 'r');
+				si(2, 'y');
+				so(1, 100);
+				so(2, tv % 100);
+				so(3, 0);
+				so(4, 0);
+				so(5, 0);
+			}
+			else if(100 <= tv && tv < 200) {
+				si(1, 'y');
+				si(2, 'g');
+				so(1, 100);
+				so(2, tv % 100);
+			}
+			else if(200 <= tv && tv < 300) {
+				si(1, 'g');
+				si(2, 'c');
+				so(1, 100);
+				so(2, tv % 100);
+			}
+			else if(300 <= tv && tv < 400) {
+				si(1, 'c');
+				si(2, 'b');
+				so(1, 100);
+				so(2, tv % 100);
+			}
+			else if(400 <= tv && tv < 500) {
+				si(1, 'b');
+				si(2, 'm');
+				so(1, 100);
+				so(2, tv % 100);
+			}
+			else if(500 <= tv && tv < 600) {
+				si(1, 'm');
+				si(2, 'r');
+				so(1, 100);
+				so(2, tv % 100);
+			}
+			tv++;
+		}
+		setInterval(gradient, 50);
+	</script>
+</body>
+</html>

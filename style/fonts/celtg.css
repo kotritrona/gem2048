@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "celtg";
+    src: url("celtg-webfont.svg") format("svg"),
+         url("celtg-webfont.woff2") format("woff2"),
+         url("celtg-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
